@@ -31,16 +31,37 @@ header {
     z-index: 10;
 }
 
-/* Text místo obrázku loga */
 .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5em;
-    font-weight: bold;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 0px;
+    border: 3px solid white;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.1) rotate(10deg); /* Zvětšení a otočení při najetí myší */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Jemný stín při najetí myší */
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.logo-text {
+    margin-top: 10px;
     color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     animation: pulse-text 2s ease-in-out infinite alternate;
 }
 
@@ -53,6 +74,7 @@ header {
     }
 }
 
+/* Nový styl pro rámeček pod sociálními ikonami */
 .social-links {
     margin-top: 15px;
     display: flex;
@@ -73,16 +95,27 @@ header {
     transform: scale(1.2);
 }
 
+/* Přidání rámečku pod sociální ikony */
 .social-links::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -10px; /* Umístění rámečku pod ikony */
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    background-color: #fff; /* Bílý rámeček */
+    border-radius: 10px; /* Zaoblené rohy rámečku */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Jemný stín pro efekt */
+}
+
+/* Styly pro zápatí */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    color: white;
+    position: relative;
+    z-index: 10;
 }
 
 /* Styly pro YouTube video */
@@ -94,32 +127,28 @@ header {
 }
 
 .video-frame {
-    width: 70%;
-    max-width: 640px;
-    border: 5px solid #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 70%;  /* Zmenšení šířky videa */
+    max-width: 640px;  /* Maximální šířka videa */
+    border: 5px solid #fff;  /* Rámeček kolem videa */
+    border-radius: 15px;  /* Zaoblené rohy rámečku */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  /* Jemný stín kolem rámečku */
 }
 
 iframe {
     width: 100%;
-    height: 360px;
-    border-radius: 10px;
-}
-
-footer {
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    color: white;
-    position: relative;
-    z-index: 10;
+    height: 360px;  /* Snížená výška pro menší video */
+    border-radius: 10px;  /* Zaoblené rohy pro video */
 }
 
 /* Responsivní design pro mobilní zařízení */
 @media screen and (max-width: 600px) {
     .logo-container {
-        font-size: 1.8em;
+        width: 80px;
+        height: 80px;
+    }
+
+    .logo-text {
+        font-size: 1.2em;
     }
 
     .social-icon {
@@ -127,10 +156,10 @@ footer {
     }
 
     .video-frame {
-        width: 90%;
+        width: 90%; /* Zvětšení šířky videa na mobilních zařízeních */
     }
 
     iframe {
-        height: 250px;
+        height: 250px;  /* Snížení výšky videa pro mobilní zařízení */
     }
 }
